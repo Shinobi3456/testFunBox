@@ -1,4 +1,4 @@
-[![HitCount](http://hits.dwyl.com/Shinobi3456/Shinobi3456 / testFunBox.svg)](http://hits.dwyl.com/Shinobi3456/Shinobi3456 / testFunBox)
+[![HitCount](http://hits.dwyl.com/Shinobi3456/Shinobi3456/testFunBox.svg)](http://hits.dwyl.com/Shinobi3456/Shinobi3456/testFunBox)
 
 # Test for developer (Django + Redis)
 
@@ -35,3 +35,46 @@ $ pipenv install && pipenv shell
 ```
 $ pip install -r requirements.txt
 ```
+
+4. Configure Redis configuration in `TestFunBox/settings.py`
+
+5. Start the Django API
+```
+$ python manage.py runserver
+```
+
+6. Run tests
+```
+$ python manage.py test
+```
+
+7. Send requests to post `http://localhost:8000/api/visited_links`
+
+Request data:
+```json
+{
+    "links": [
+        "https://ya.ru",
+        "https://ya.ru?q=123",
+        "https://funbox.ru",
+        "https://stackoverflowdsfsdfds.com/questions/11828270/how-to-exit-the-vim-editor"
+    ]
+}
+```
+
+Response Success
+
+```json
+{
+    "status": "ok"
+}
+```
+
+Response Error
+
+```json
+{
+    "status": "error" 
+}
+```
+error - this is the error text
